@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextBuscarSensor"
+        android:layout_width="335dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:hint="@string/edit_text_buscador_sensores"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/buttonInvernaderos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewIconInv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:text="@string/icon_invernaderos_text"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonInvernaderos"
+        app:layout_constraintEnd_toEndOf="@+id/buttonInvernaderos"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="@+id/buttonInvernaderos"
+        app:layout_constraintTop_toTopOf="@+id/buttonInvernaderos"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonInvernaderos"
+        android:layout_width="225dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="93dp"
+        android:backgroundTint="#309cf4"
+        android:onClick="buttonInvernaderosClick"
+        android:text="@string/button_invernaderos_text"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBuscarSensor" />
+
+    <Button
+        android:id="@+id/buttonAddInvernaderos"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        android:backgroundTint="#309cf4"
+        android:onClick="buttonAddUbicacionClick"
+        android:padding="0dp"
+        android:paddingHorizontal="0dp"
+        android:paddingVertical="0dp"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:scrollbarSize="0dp"
+        android:text="@string/text_agregar"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonInvernaderos"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewIconSensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:elevation="8dp"
+        android:text="@string/icon_sensores_text"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSensores"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSensores"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="@+id/buttonSensores"
+        app:layout_constraintTop_toTopOf="@+id/buttonSensores"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonSensores"
+        android:layout_width="205dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="103dp"
+        android:backgroundTint="#309CF4"
+        android:onClick="buttonSensoresClick"
+        android:text="@string/button_sensores_text"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextBuscarSensor" />
+
+    <Button
+        android:id="@+id/buttonAddSensores"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="162dp"
+        android:backgroundTint="#309cf4"
+        android:onClick="buttonAddSensorClick"
+        android:padding="0dp"
+        android:paddingHorizontal="0dp"
+        android:paddingVertical="0dp"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:scrollbarSize="0dp"
+        android:text="@string/text_agregar"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSensores" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="381dp"
+        android:layout_height="171dp"
+        app:cardBackgroundColor="#50FB8F"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddSensores">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewEjSensor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_view_ej_sensor"
+                android:textColor="#3F53D9"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.404"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewMonitorPrincipal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/text_view_monitor_principal"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.155"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.086" />
+
+            <ImageView
+                android:id="@+id/imageViewSensorRt"
+                android:layout_width="99dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMonitorPrincipal"
+                app:layout_constraintVertical_bias="0.117"
+                app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+            <TextView
+                android:id="@+id/textViewLectura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_view_lectura_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.425"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/textViewEjUbicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="@string/text_view_ej_ubi"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.544"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.303" />
+
+            <TextView
+                android:id="@+id/textViewEjIdeal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_view_ej_ideal"
+                android:textColor="#6A6A6A"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.395"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.625" />
+
+            <TextView
+                android:id="@+id/textViewEjLectura"
+                android:layout_width="144dp"
+                android:layout_height="84dp"
+                android:layout_marginTop="104dp"
+                android:text="@string/text_view_ej_lectura"
+                android:textColor="#F44336"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.932"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

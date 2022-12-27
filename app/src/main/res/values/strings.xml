@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">COOPERATIVA AGRÍCOLA</string>
+    <!--Main Activity-->
+    <string name="edit_text_buscador_sensores">BUSCAR SENSOR 🔎</string>
+    <string name="button_invernaderos_text">INVERNADEROS</string>
+    <string name="icon_invernaderos_text">🪴</string>
+    <string name="button_sensores_text">SENSORES</string>
+    <string name="icon_sensores_text">📟</string>
+    <!--Monitor en curso EJEMPLOS-->
+    <string name="text_view_monitor_principal">Monitor en curso</string>
+    <string name="text_view_lectura_text">Lectura actual:</string>
+    <string name="text_view_ej_lectura"> 25° C</string>
+    <string name="text_view_ej_ubi">Ubicación: Invernadero 1</string>
+    <string name="text_view_ej_sensor">Sensor s-23</string>
+    <string name="text_view_ej_ideal">Ideal: 12.3°</string>
+    <!--Monitor en curso EJEMPLOS-->
+
+    <string name="text_agregar">+</string>
+    <!--Listas Activities-->
+    <string name="text_lista_ubicaciones">LISTA DE UBICACIONES</string>
+    <string name="text_lista_sensores">LISTA DE SENSORES</string>
+    <!--Add/mod text-->
+    <string name="text_add_mod">Agregar/modificar</string>
+    <string name="text_sensor">SENSOR</string>
+    <string name="text_ubicacion">UBICACIÓN</string>
+    <!--hints formulario ubicación-->
+    <string name="text_hint_nombre_ubi">Nombre de la ubicación</string>
+    <string name="text_hint_desc_ubi">Descripción de la ubicación</string>
+    <!--hints formulario sensor -->
+    <string name="text_hint_id_sensor">ID sensor</string>
+    <string name="text_hint_nom_sensor">Nombre del sensor</string>
+    <string name="text_hint_desc_sensor">Descripción del sensor</string>
+    <string name="text_hint_tipo_sensor">Tipo de sensor</string>
+    <string name="text_hint_marca_ideal">Marca ideal del sensor</string>
+    <string name="text_hint_select_ubi">Selecciona la ubicación</string>
+
+    <string name="edit_text_nuevo_id_hint">Ingrese un ID</string>
+    <string name="edit_text_nuevo_nombre_hint">Nombre del Sensor</string>
+    <string name="edit_text_nuevo_descripcion_hint">Descripción del Sensor</string>
+    <string name="edit_text_nuevo_ideal_hint">Marca ideal del sensor</string>
+
+    <string name="button_guardar_sensor_text">Guardar sensor</string>
+    <string name="edit_text_nuevo_tipo_sensor_hint">Tipo de sensor</string>
+
+    <!--Ejemplos seleccionar Ubicaciones -->
+    <string-array name="seleccionar_ubicacion">
+        <item>Selecciona la ubicación 📍</item>
+        <item>Invernadero 1</item>
+        <item>Invernadero 2</item>
+        <item>Invernadero 3</item>
+    </string-array>
+    <!--Ejemplos spinner Tipo sensor -->
+    <string-array name="seleccionar_tipo_sensor">
+        <item>Tipo de sensor 📟</item>
+        <item>Temperatura 🌡️</item>
+        <item>Humedad 💧</item>
+    </string-array>
+</resources>
