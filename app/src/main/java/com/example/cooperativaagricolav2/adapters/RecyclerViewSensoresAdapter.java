@@ -25,14 +25,12 @@ public class RecyclerViewSensoresAdapter extends RecyclerView.Adapter<RecyclerVi
         private final TextView textViewNombreSensor;
         private final TextView textViewDescripcionSensor;
         private final TextView textViewMarcaIdeal;
-        private final TextView textViewUbicacionSensor;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            textViewIdSensor = (TextView) view.findViewById(R.id.textViewIdUbicacion);
-            textViewNombreSensor = (TextView) view.findViewById(R.id.textViewNombreUbicacion);
-            textViewUbicacionSensor = (TextView) view.findViewById(R.id.textViewUbicacion);
-            textViewDescripcionSensor = (TextView) view.findViewById(R.id.textViewDescripcionUbicacion);
+            textViewIdSensor = (TextView) view.findViewById(R.id.textViewIdSensor);
+            textViewNombreSensor = (TextView) view.findViewById(R.id.textViewNombreSensor);
+            textViewDescripcionSensor = (TextView) view.findViewById(R.id.textViewDescripcionSensor);
             textViewMarcaIdeal = (TextView) view.findViewById(R.id.textViewMarcaIdeal);
         }
 
@@ -66,7 +64,7 @@ public class RecyclerViewSensoresAdapter extends RecyclerView.Adapter<RecyclerVi
         holder.getTextViewIdSensor().setText(String.valueOf(data.get(position).getId()));
         holder.getTextViewNombre().setText(data.get(position).getNombre());
         holder.getTextViewDescripcionSensor().setText(data.get(position).getDescripcion());
-        holder.getTextViewMarcaIdeal().setText(data.get(position).getDescripcion());
+        holder.getTextViewMarcaIdeal().setText((String.valueOf(data.get(position).getIdeal())));
     }
 
     @Override

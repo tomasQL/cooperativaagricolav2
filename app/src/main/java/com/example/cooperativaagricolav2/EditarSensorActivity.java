@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import com.example.cooperativaagricolav2.models.Sensor;
@@ -28,6 +29,31 @@ public class EditarSensorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_sensor);
+    }
+    public void buscarSensor(View view) {
+        try {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            EditText editTextId = (EditText) findViewById(R.id.editTextNuevoIdSensor);
+            EditText editTextNombre = (EditText) findViewById(R.id.editTextNombreSensor);
+            EditText editTextIdeal = (EditText) findViewById(R.id.editTextMarcaIdeal);
+            EditText editTextDesc = (EditText) findViewById(R.id.editTextDescSensor);
+
+            db.collection("sensores").document(editTextId.getText().toString())
+                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Sensor sensor = documentSnapshot.toObject(Sensor.class);
+                            editTextId.setText(sensor.getId());
+                            editTextNombre.setText(sensor.getNombre());
+                            editTextIdeal.setText((int) sensor.getIdeal());
+                            editTextDesc.setText(sensor.getDescripcion());
+
+                        }
+                    });
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void guardarSensor(View view) {

@@ -7,20 +7,19 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editTextBuscarSensor"
-        android:layout_width="335dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:hint="@string/edit_text_buscador_sensores"
-        android:inputType="textPersonName"
-        android:padding="20dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/buttonInvernaderos"
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:imeOptions="actionSearch"
+        android:inputType="number"
+        android:queryHint="Buscar Sensor por ID"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/textViewIconInv"
@@ -41,16 +40,18 @@
         android:layout_width="225dp"
         android:layout_height="72dp"
         android:layout_marginStart="93dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="93dp"
         android:backgroundTint="#309cf4"
         android:onClick="buttonInvernaderosClick"
         android:text="@string/button_invernaderos_text"
         android:textAlignment="textEnd"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBuscarSensor" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.168" />
 
     <Button
         android:id="@+id/buttonAddInvernaderos"
@@ -100,17 +101,18 @@
         android:layout_width="205dp"
         android:layout_height="72dp"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="272dp"
         android:layout_marginEnd="103dp"
         android:backgroundTint="#309CF4"
         android:onClick="buttonSensoresClick"
         android:text="@string/button_sensores_text"
         android:textAlignment="textEnd"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextBuscarSensor" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417" />
 
     <Button
         android:id="@+id/buttonAddSensores"
@@ -140,6 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonSensores" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
         android:layout_width="381dp"
         android:layout_height="171dp"
         app:cardBackgroundColor="#50FB8F"
@@ -148,7 +151,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddSensores">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
