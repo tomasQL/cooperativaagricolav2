@@ -6,6 +6,8 @@
     <string name="icon_invernaderos_text">🪴</string>
     <string name="button_sensores_text">SENSORES</string>
     <string name="icon_sensores_text">📟</string>
+
+    <string name="icon_basura_text">🗑️</string>
     <!--Monitor en curso EJEMPLOS-->
     <string name="text_view_monitor_principal">Monitor en curso</string>
     <string name="text_view_lectura_text">Lectura actual:</string>
@@ -55,4 +57,5 @@
         <item>Temperatura 🌡️</item>
         <item>Humedad 💧</item>
     </string-array>
+
 </resources>

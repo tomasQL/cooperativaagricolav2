@@ -1,18 +1,24 @@
 package com.example.cooperativaagricolav2;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cooperativaagricolav2.adapters.RecyclerViewSensoresAdapter;
 import com.example.cooperativaagricolav2.adapters.RecyclerViewUbicacionesAdapter;
-import com.example.cooperativaagricolav2.models.Sensor;
 import com.example.cooperativaagricolav2.models.Ubicacion;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -45,7 +51,6 @@ public class ListaUbicacionesActivity extends AppCompatActivity {
                                 // Generar una lista de contactos con cada documento
                                 for (QueryDocumentSnapshot doc : task.getResult()) {
                                     ubicaciones.add(doc.toObject(Ubicacion.class));
-                                    //adapter.notifyDataSetChanged();
                                 }
                                 RecyclerViewUbicacionesAdapter adapter = new RecyclerViewUbicacionesAdapter(ubicaciones);
                                 recyclerView.setAdapter(adapter);

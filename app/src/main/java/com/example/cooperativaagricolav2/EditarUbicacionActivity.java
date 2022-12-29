@@ -1,5 +1,7 @@
 package com.example.cooperativaagricolav2;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,6 +12,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,71 +34,10 @@ import java.util.Locale;
 
 public class EditarUbicacionActivity extends AppCompatActivity {
 
-    // Inicializar variables
-    Button buttonLocation;
-    TextView textViewUbicacionActual;
-    FusedLocationProviderClient fusedLocationProviderClient;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_ubicacion);
-
-
-        // asignar variables
-        buttonLocation = findViewById(R.id.buttonLocation);
-        textViewUbicacionActual = findViewById(R.id.textViewUbicacionActual);
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
-        buttonLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ActivityCompat.checkSelfPermission(EditarUbicacionActivity.this
-                        , Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    // Cuando el permiso es garantizado
-                    getLocation();
-                } else {
-                    // Cuando el permiso es denegado
-                    ActivityCompat.requestPermissions(EditarUbicacionActivity.this
-                            , new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-                }
-            }
-        });
-    }
-
-    private void getLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                // Iniciar Ubicacion
-                Location location = task.getResult();
-                if (location != null) {
-                    try {
-                        // Iniciar geoCoder
-                        Geocoder geocoder = new Geocoder(EditarUbicacionActivity.this,
-                                Locale.getDefault());
-
-                        // Iniciar lista de ubicacion
-                        List<Address> addresses = geocoder.getFromLocation(
-                                location.getLatitude(), location.getLongitude(), 1
-                        );
-                        textViewUbicacionActual.setText((addresses.get(0).getAddressLine(0)));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 
     public void agregar(View view) {
@@ -128,7 +70,34 @@ public class EditarUbicacionActivity extends AppCompatActivity {
                         }
                     });
         } catch (Exception e) {
-            Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void eliminarUbi(View view){
+        try{
+            //TextView textViewIdUbi = (TextView) findViewById(R.id.textViewIdUbicacion);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            EditText editTextUbi = (EditText) findViewById(R.id.editTextNuevaUbiId);
+            db.collection("ubicaciones" ).document(editTextUbi.getText().toString())
+                    .delete()
+                    .addOnCompleteListener(new OnCompleteListener<Void>(){
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(EditarUbicacionActivity.this, "La ubicacion ha sido eliminada", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(EditarUbicacionActivity.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error al eliminar la ubicacion");
+                        }
+                    });
+        }  catch (Exception e) {
+            Toast.makeText(EditarUbicacionActivity.this, "Error " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
